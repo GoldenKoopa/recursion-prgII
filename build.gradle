@@ -1,0 +1,32 @@
+plugins {
+  id 'application'
+  id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "21"
+    modules = [ 'javafx.controls' ]
+}
+
+application {
+    if (project.hasProperty("launch")) {
+        mainClass.set("eu.goldenkoopa.${project.property("launch")}")
+    } else {
+        mainClass.set("eu.goldenkoopa.Main") // Fallback main class
+    }
+}
+
+tasks.named('run', JavaExec) {
+    standardInput = System.in
+}
+
+
+// task run2(type: JavaExec) {
+//     main = 'com.example.Main' // Replace with your main class
+//     classpath = sourceSets.main.runtimeClasspath
+//     standardInput = System.in // Redirect standard input
+// }
