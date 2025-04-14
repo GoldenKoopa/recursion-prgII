@@ -14,11 +14,11 @@ public class ReverseDisplay {
 
     private static void reverseDisplay(String input) {
 
-        if (input.length() == 0) {
+        if (input.isEmpty()) {
             return;
         }
 
-        reverseDisplay(input.substring(1, input.length()));
+        reverseDisplay(input.substring(1));
 
         System.out.print(input.charAt(0));
     }
